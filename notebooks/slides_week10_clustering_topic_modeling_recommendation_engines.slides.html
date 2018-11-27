@@ -13469,15 +13469,6 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src='images/pca.gif'></p>
-<p><font size="2">from https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues</font></p>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="How-linearly-separable-are-the-two-classes-in-our-face-data?">How linearly separable are the two classes in our face data?<a class="anchor-link" href="#How-linearly-separable-are-the-two-classes-in-our-face-data?">&#182;</a></h3>
 </div>
 </div>
@@ -13829,16 +13820,6 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>have to specify the number of clusters k</li>
-</ul>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>have to specify a distance metric</li>
 </ul>
 
 </div>
@@ -14914,6 +14895,350 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-Content-Based-using-Normed-House-Data">Example Content-Based using Normed House Data<a class="anchor-link" href="#Example-Content-Based-using-Normed-House-Data">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_house</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/house_sales_subset_normed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_house</span><span class="p">[[</span><span class="s1">&#39;SqFtTotLiving_norm&#39;</span><span class="p">,</span><span class="s1">&#39;SqFtLot_norm&#39;</span><span class="p">,</span><span class="s1">&#39;AdjSalePrice_norm&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
+<span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[103]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(50, 3)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[104]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SqFtTotLiving_norm</th>
+      <th>SqFtLot_norm</th>
+      <th>AdjSalePrice_norm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.349914</td>
+      <td>0.654181</td>
+      <td>-0.798237</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.225407</td>
+      <td>0.442910</td>
+      <td>-0.309217</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.394254</td>
+      <td>0.443470</td>
+      <td>-0.811184</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-1.258803</td>
+      <td>-1.685468</td>
+      <td>-0.414055</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>-0.241043</td>
+      <td>2.133356</td>
+      <td>-0.629701</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># using euclidean distance</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="k">import</span> <span class="n">euclidean_distances</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># calculate all pairwise distances between houses</span>
+<span class="n">dists</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">dists</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># movie X movie</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[106]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(50, 50)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># find houses similar to this house</span>
+<span class="n">query_idx</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">query_idx</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[107]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>SqFtTotLiving_norm   -1.193141
+SqFtLot_norm         -0.478846
+AdjSalePrice_norm    -1.039064
+Name: 8, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># these are all distance scores for query house</span>
+<span class="n">dists</span><span class="p">[</span><span class="n">query_idx</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[108]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([1.92944746, 2.68917919, 1.24129594, 1.36047163, 2.81027897,
+       0.        , 1.9964107 , 2.09892484, 0.96489047, 0.36454194,
+       0.40007419, 1.94745294, 1.98281177, 1.10007316, 1.52385379,
+       1.34380697, 1.24388623, 3.57703842, 2.37909715, 2.3292857 ,
+       2.26397022, 3.51527475, 3.11055968, 3.51038888, 3.88350802,
+       2.53223203, 2.56146285, 2.29649587, 3.5281185 , 2.53230875,
+       2.86113238, 2.73319952, 1.61877991, 1.08897556, 1.00678652,
+       1.14361704, 1.124655  , 0.97621467, 0.21593567, 0.32078764,
+       0.39443001, 2.07897835, 2.47463125, 2.11754163, 1.54641995,
+       2.51395278, 1.65140782, 1.76703154, 1.61549329, 1.9744124 ])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># find indexes of best scores (for distances, want ascending)</span>
+<span class="n">best_idxs_asc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">dists</span><span class="p">[</span><span class="n">query_idx</span><span class="p">])</span>
+<span class="n">best_idxs_asc</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[110]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(50,)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># the top 10 recommendations</span>
+<span class="n">best_idxs_asc</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[111]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 5, 38, 39,  9, 40, 10,  8, 37, 34, 33])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># what if these were similarities instead of differences?</span>
+<span class="c1"># would need to reverse this</span>
+<span class="n">best_idxs_desc</span> <span class="o">=</span> <span class="n">best_idxs_asc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Issues-with-content-based">Issues with content-based<a class="anchor-link" href="#Issues-with-content-based">&#182;</a></h4>
 </div>
 </div>
@@ -14932,7 +15257,7 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>these may vary between users and change over time</li>
+<li>these features may vary between users and change over time</li>
 </ul>
 
 </div>
@@ -14975,6 +15300,117 @@ a.anchor-link {
 
 </div>
 </div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example-Collaborative-Filtering:-Movies">Example Collaborative Filtering: Movies<a class="anchor-link" href="#Example-Collaborative-Filtering:-Movies">&#182;</a></h3>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s1">&#39;user1&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+                      <span class="p">[</span><span class="s1">&#39;user2&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">],</span>
+                      <span class="p">[</span><span class="s1">&#39;user3&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">]</span>
+                     <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;uid&#39;</span><span class="p">,</span><span class="s1">&#39;movie1&#39;</span><span class="p">,</span><span class="s1">&#39;movie2&#39;</span><span class="p">,</span><span class="s1">&#39;movie3&#39;</span><span class="p">,</span><span class="s1">&#39;movie4&#39;</span><span class="p">])</span>
+<span class="n">df_cf</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;uid&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cf</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[116]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movie1</th>
+      <th>movie2</th>
+      <th>movie3</th>
+      <th>movie4</th>
+    </tr>
+    <tr>
+      <th>uid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>user1</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>user2</th>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>user3</th>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>None</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
