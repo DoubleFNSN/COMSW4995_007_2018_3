@@ -13620,7 +13620,7 @@ Calcaware
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># need to install chromedriver</span>
@@ -13637,82 +13637,207 @@ Calcaware
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">SessionNotCreatedException</span>                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-32-270e25b04992&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> chrome_options<span class="ansi-blue-fg">.</span>add_argument<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;--headless&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> 
-<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>driver <span class="ansi-blue-fg">=</span> webdriver<span class="ansi-blue-fg">.</span>Chrome<span class="ansi-blue-fg">(</span>options<span class="ansi-blue-fg">=</span>chrome_options<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/coms007ext/lib/python3.6/site-packages/selenium/webdriver/chrome/webdriver.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, executable_path, port, options, service_args, desired_capabilities, service_log_path, chrome_options, keep_alive)</span>
-<span class="ansi-green-intense-fg ansi-bold">     79</span>                     remote_server_addr<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>service<span class="ansi-blue-fg">.</span>service_url<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>                     keep_alive=keep_alive),
-<span class="ansi-green-fg">---&gt; 81</span><span class="ansi-red-fg">                 desired_capabilities=desired_capabilities)
-</span><span class="ansi-green-intense-fg ansi-bold">     82</span>         <span class="ansi-green-fg">except</span> Exception<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     83</span>             self<span class="ansi-blue-fg">.</span>quit<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/coms007ext/lib/python3.6/site-packages/selenium/webdriver/remote/webdriver.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, command_executor, desired_capabilities, browser_profile, proxy, keep_alive, file_detector, options)</span>
-<span class="ansi-green-intense-fg ansi-bold">    155</span>             warnings.warn(&#34;Please use FirefoxOptions to set browser profile&#34;,
-<span class="ansi-green-intense-fg ansi-bold">    156</span>                           DeprecationWarning, stacklevel=2)
-<span class="ansi-green-fg">--&gt; 157</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>start_session<span class="ansi-blue-fg">(</span>capabilities<span class="ansi-blue-fg">,</span> browser_profile<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    158</span>         self<span class="ansi-blue-fg">.</span>_switch_to <span class="ansi-blue-fg">=</span> SwitchTo<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    159</span>         self<span class="ansi-blue-fg">.</span>_mobile <span class="ansi-blue-fg">=</span> Mobile<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/coms007ext/lib/python3.6/site-packages/selenium/webdriver/remote/webdriver.py</span> in <span class="ansi-cyan-fg">start_session</span><span class="ansi-blue-fg">(self, capabilities, browser_profile)</span>
-<span class="ansi-green-intense-fg ansi-bold">    250</span>         parameters = {&#34;capabilities&#34;: w3c_caps,
-<span class="ansi-green-intense-fg ansi-bold">    251</span>                       &#34;desiredCapabilities&#34;: capabilities}
-<span class="ansi-green-fg">--&gt; 252</span><span class="ansi-red-fg">         </span>response <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>Command<span class="ansi-blue-fg">.</span>NEW_SESSION<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    253</span>         <span class="ansi-green-fg">if</span> <span class="ansi-blue-fg">&#39;sessionId&#39;</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> response<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    254</span>             response <span class="ansi-blue-fg">=</span> response<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;value&#39;</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/coms007ext/lib/python3.6/site-packages/selenium/webdriver/remote/webdriver.py</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, driver_command, params)</span>
-<span class="ansi-green-intense-fg ansi-bold">    319</span>         response <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>command_executor<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>driver_command<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    320</span>         <span class="ansi-green-fg">if</span> response<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 321</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>error_handler<span class="ansi-blue-fg">.</span>check_response<span class="ansi-blue-fg">(</span>response<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    322</span>             response[&#39;value&#39;] = self._unwrap_value(
-<span class="ansi-green-intense-fg ansi-bold">    323</span>                 response.get(&#39;value&#39;, None))
-
-<span class="ansi-green-fg">~/anaconda3/envs/coms007ext/lib/python3.6/site-packages/selenium/webdriver/remote/errorhandler.py</span> in <span class="ansi-cyan-fg">check_response</span><span class="ansi-blue-fg">(self, response)</span>
-<span class="ansi-green-intense-fg ansi-bold">    240</span>                 alert_text <span class="ansi-blue-fg">=</span> value<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;alert&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;text&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    241</span>             <span class="ansi-green-fg">raise</span> exception_class<span class="ansi-blue-fg">(</span>message<span class="ansi-blue-fg">,</span> screen<span class="ansi-blue-fg">,</span> stacktrace<span class="ansi-blue-fg">,</span> alert_text<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 242</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">raise</span> exception_class<span class="ansi-blue-fg">(</span>message<span class="ansi-blue-fg">,</span> screen<span class="ansi-blue-fg">,</span> stacktrace<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    243</span> 
-<span class="ansi-green-intense-fg ansi-bold">    244</span>     <span class="ansi-green-fg">def</span> _value_or_default<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> obj<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">,</span> default<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">SessionNotCreatedException</span>: Message: session not created: Chrome version must be &gt;= 69.0.3497.0
-  (Driver info: chromedriver=2.44.609551 (5d576e9a44fe4c5b6a07e568f1ebc753f1214634),platform=Linux 3.19.0-32-generic x86_64)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">wu_link</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></div></section></section>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wu_table</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_class_name</span><span class="p">(</span><span class="s1">&#39;tablesaw-sortable&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_class_name</span><span class="p">(</span><span class="s1">&#39;tablesaw-sortable&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[50]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Time Temperature Dew Point Humidity Wind Wind Speed Wind Gust Pressure Precip.\n12:51 AM\n55 F 52 F 89 %\n0 mph 0 mph 29.4 in 0.0 in\n1:51 AM\n55 F 52 F 89 %\n0 mph 0 mph 29.4 in 0.0 in\n2:51 AM\n55 F 53 F 93 %\n0 mph 0 mph 29.4 in 0.0 in\n3:38 AM\n54 F 53 F 97 %\n0 mph 0 mph 29.4 in 0.0 in\n3:51 AM\n54 F 53 F 97 %\n0 mph 0 mph 29.4 in 0.0 in\n4:51 AM\n54 F 53 F 97 %\n0 mph 0 mph 29.4 in 0.0 in\n5:01 AM\n54 F 53 F 97 %\n0 mph 0 mph 29.4 in 0.0 in\n5:28 AM\n54 F 52 F 93 %\n0 mph 0 mph 29.4 in 0.0 in\n5:51 AM\n54 F 51 F 90 %\n0 mph 0 mph 29.4 in 0.0 in\n6:51 AM\n53 F 49 F 86 %\n0 mph 0 mph 29.4 in 0.0 in\n7:51 AM\n54 F 46 F 75 %\n0 mph 0 mph 29.5 in 0.0 in\n8:51 AM\n54 F 44 F 69 %\n0 mph 0 mph 29.5 in 0.0 in\n9:51 AM\n54 F 41 F 62 %\n0 mph 0 mph 29.5 in 0.0 in\n10:51 AM\n54 F 39 F 57 %\n0 mph 0 mph 29.5 in 0.0 in&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wu_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tr</span> <span class="ow">in</span> <span class="n">wu_table</span><span class="o">.</span><span class="n">find_elements_by_css_selector</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
+    <span class="n">wu_data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">td</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">td</span> <span class="ow">in</span> <span class="n">tr</span><span class="o">.</span><span class="n">find_elements_by_css_selector</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)])</span>
+
+<span class="n">df_wu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">wu_data</span><span class="p">)</span>
+<span class="n">df_wu</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[59]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12:51 AM</td>
+      <td>55 F</td>
+      <td>52 F</td>
+      <td>89 %</td>
+      <td></td>
+      <td>0 mph</td>
+      <td>0 mph</td>
+      <td>29.4 in</td>
+      <td>0.0 in</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1:51 AM</td>
+      <td>55 F</td>
+      <td>52 F</td>
+      <td>89 %</td>
+      <td></td>
+      <td>0 mph</td>
+      <td>0 mph</td>
+      <td>29.4 in</td>
+      <td>0.0 in</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2:51 AM</td>
+      <td>55 F</td>
+      <td>53 F</td>
+      <td>93 %</td>
+      <td></td>
+      <td>0 mph</td>
+      <td>0 mph</td>
+      <td>29.4 in</td>
+      <td>0.0 in</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3:38 AM</td>
+      <td>54 F</td>
+      <td>53 F</td>
+      <td>97 %</td>
+      <td></td>
+      <td>0 mph</td>
+      <td>0 mph</td>
+      <td>29.4 in</td>
+      <td>0.0 in</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section>
 </div>
 </div>
 
